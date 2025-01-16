@@ -1,4 +1,4 @@
-FROM node:22 AS build
+FROM oven/bun:1 AS build
 WORKDIR /app
 COPY package*.json ./
 RUN bun install
