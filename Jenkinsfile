@@ -36,7 +36,7 @@ pipeline {
                     -e VITE_WEBSOCKET=${VITE_WEBSOCKET} \
                     -e VITE_TMDB_API_URL=${VITE_TMDB_API_URL} \
                     -e VITE_TMDB_API_KEY=${VITE_TMDB_API_KEY} \
-                    -restart unless-stopped \
+                    --restart unless-stopped \
                     ${DOCKER_IMAGE}:${DOCKER_TAG}
                 """
             }
