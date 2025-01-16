@@ -29,7 +29,7 @@ pipeline {
                 sh "docker rm ${DOCKER_IMAGE} || true"
 
                 sh """
-                    docker run d \
+                    docker run -d \
                     --name ${DOCKER_IMAGE} \
                     -p 80:80 \
                     -e VITE_API_URL=${VITE_API_URL} \
