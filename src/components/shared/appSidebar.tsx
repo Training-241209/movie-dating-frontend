@@ -9,17 +9,15 @@ import {
   SidebarFooter,
 } from "@/components/ui/sidebar"
 import { Button } from "../ui/button"
-import { useQueryClient } from "@tanstack/react-query";
 import { Link, useRouter } from "@tanstack/react-router";
 import { useAuth } from "@/features/hooks/use-Auth";
-import { useState,useEffect } from "react";
+import { useEffect } from "react";
 import { useGetChatRooms } from "@/features/hooks/use-getChatRooms";
 import { useLogout } from "@/features/hooks/use-logout";
 import logo from "@/assets/cinematchLogo.png"
 
 export function AppSidebar()  {
   
-  const queryClient = useQueryClient();
   const router = useRouter()
   const {mutate: logout} = useLogout();
 

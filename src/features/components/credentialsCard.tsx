@@ -1,31 +1,30 @@
-import { useAuth } from "../hooks/use-Auth.ts";
+// import { useAuth } from "../hooks/use-Auth.ts";
 import { Button } from "@/components/ui/button"
 import {
   Form,
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from "@/components/ui/form"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input.tsx";
-import { UsernameSchema,usernameSchema } from "../schemas/usernameCredentialSchema.ts";
+// import { UsernameSchema,usernameSchema } from "../schemas/usernameCredentialSchema.ts";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { passwordSchema, PasswordSchema } from "../schemas/passwordCredentialsSchema.ts";
-import { useUpdateUsername } from "../hooks/use-updateUsername.ts";
+// import { useUpdateUsername } from "../hooks/use-updateUsername.ts";
 import { useUpdatePassword } from "../hooks/use-updatePassword.ts";
 import { Link } from "@tanstack/react-router";
 export function CredentialsCard(){
-    const {data: auth} = useAuth()
-    const formUser = useForm<UsernameSchema>({
-        resolver: zodResolver(usernameSchema),
-        defaultValues: {
-          username: "",
-          newUsername: "",
-        },
-      });
+    // const {data: auth} = useAuth();
+    // const formUser = useForm<UsernameSchema>({
+    //     resolver: zodResolver(usernameSchema),
+    //     defaultValues: {
+    //       username: "",
+    //       newUsername: "",
+    //     },
+    //   });
     const formPassword = useForm<PasswordSchema>({
         resolver: zodResolver(passwordSchema),
         defaultValues:{
@@ -34,14 +33,14 @@ export function CredentialsCard(){
             confirmNewPassword: "",
         }
     })
-    const {mutate: updateUsername} = useUpdateUsername()
+    // const {mutate: updateUsername} = useUpdateUsername()
     const {mutate: updatePassword} = useUpdatePassword()
     
-    function submitUsername(values:UsernameSchema){
-        updateUsername(values.newUsername)
-        console.log("Updated Username: ",values.newUsername)
-        formUser.reset()
-    }
+    // function submitUsername(values:UsernameSchema){
+    //     updateUsername(values.newUsername)
+    //     console.log("Updated Username: ",values.newUsername)
+    //     formUser.reset()
+    // }
 
     function submitPassword(values:PasswordSchema){
         if(values.newPassword !== values.confirmNewPassword){
@@ -62,9 +61,9 @@ export function CredentialsCard(){
         
         formPassword.reset()
     }
-    function clearUsername(){
-        formUser.reset()
-    }
+    // function clearUsername(){
+    //     formUser.reset()
+    // }
     function clearPassword(){
         formPassword.reset()
     }

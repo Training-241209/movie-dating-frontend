@@ -18,7 +18,6 @@ import { useGetChats } from "@/features/hooks/use-getChats";
 export function ChatBoxContents({
   sender,
   recipient,
-  isSideBarOpen
 }: {
   sender: string;
   recipient: string;
