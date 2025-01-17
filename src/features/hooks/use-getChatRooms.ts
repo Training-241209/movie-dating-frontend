@@ -6,7 +6,7 @@ export function useGetChatRooms() {
     return useQuery({
         queryKey: ['chatRooms'],
         queryFn: async() =>{
-              const response = await axiosInstance.get(`http://localhost:8080/api/match/${auth?.username}`)
+              const response = await axiosInstance.get(`/api/match/${auth?.username}`)
               console.log("DATA ",response.data)
               return response.data;
 
