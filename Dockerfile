@@ -1,11 +1,11 @@
-FROM oven/bun:1 AS build
+FROM node:lts-alpine AS build
 WORKDIR /app
-COPY package*.json bun.lockb ./
-RUN bun install
+COPY package*.json ./
+RUN npm install
 COPY . .
 ARG VITE_API_URL
 ARG VITE_TMDB_API_URL
-RUN VITE_API_URL=$VITE_API_URL VITE_TMDB_API_URL=$VITE_TMDB_API_URL bun run build
+RUN VITE_API_URL=$VITE_API_URL VITE_TMDB_API_URL=$VITE_TMDB_API_URL npm run build
 
 FROM nginx:stable-alpine AS production
 COPY --from=build /app/dist /usr/share/nginx/html
