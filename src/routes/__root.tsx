@@ -8,22 +8,15 @@ export const Route = createRootRoute({
   component: () => {
 
     return (
-      <StompSessionProvider
-            url={import.meta.env.VITE_WEBSOCKET}
-            onConnect={() => {
-              console.log('Connected');
-            }}
-            onDisconnect={() => {
-              console.log('Disconnected');
-            }}
-            >
+
+            
           <QueryProvider>
           <div className='min-h-screen bg-red-300 '>
             <Outlet />
             <Toaster />
           </div>
           </QueryProvider>
-        </StompSessionProvider>
+
     )
   },
 })
