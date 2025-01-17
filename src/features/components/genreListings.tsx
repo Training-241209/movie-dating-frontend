@@ -40,7 +40,7 @@ export function GenreListings() {
                         <div className="flex flex-col items-center">
                             <img
                                 className="w-44 h-44 object-cover rounded-lg transition-opacity duration-300 group-hover:opacity-70 mt-10"
-                                src={`src/assets/NewGenrePics/${item.name}.png`}
+                                src={`src/assets/NewGenrePics/${item.name.toLowerCase()}.png`}
                                 alt={item.name}
                             />
                             <p className="text-4xl font-semibold text-white mb-2 ">{item.name}</p>
