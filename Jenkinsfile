@@ -19,8 +19,10 @@ pipeline {
         }
         stage('Post-Build') {
             steps {
-                def output = sh(returnStdOut: true, script: 'ls')
-                echo "Output: ${output}"
+                script{
+                    def output = sh(returnStdOut: true, script: 'ls')
+                    echo "Output: ${output}"
+                }
                 sh 'cp index.html dist/'
             }
         }
