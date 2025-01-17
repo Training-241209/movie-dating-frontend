@@ -5,7 +5,7 @@ RUN bun install
 COPY . .
 ARG VITE_API_URL
 ARG VITE_TMDB_API_URL
-RUN VITE_API_URL=$VITE_API_URL VITE_TMDB_API_URL=$VITE_TMDB_API_URL bun run build
+RUN VITE_API_URL=$VITE_API_URL VITE_TMDB_API_URL=$VITE_TMDB_API_URL bun build
 
 FROM nginx:stable-alpine AS production
 COPY --from=build /app/dist /usr/share/nginx/html
