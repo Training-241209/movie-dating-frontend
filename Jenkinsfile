@@ -37,17 +37,17 @@ pipeline {
         
         stage('Print Environment Variables') {
 
-        //     steps {
+            steps {
 
-        //         sh 'printenv' // For Linux/Unix
+                sh 'printenv' // For Linux/Unix
 
-        //         // or
+                // or
 
-        //         // bat 'set' // For Windows
+                // bat 'set' // For Windows
 
-        //     }
+            }
 
-        // }
+        }
 
 
         stage('Test') {
