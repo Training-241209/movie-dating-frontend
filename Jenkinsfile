@@ -18,6 +18,21 @@ pipeline {
             }
         }
 
+        stage('Print Environment Variables') {
+
+            steps {
+
+                sh 'printenv' // For Linux/Unix
+
+                // or
+
+                // bat 'set' // For Windows
+
+            }
+
+        }
+
+
         stage('Test') {
             steps {
                 echo 'Testing..'
