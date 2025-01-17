@@ -37,7 +37,9 @@ export function ChatBoxContents({
         user: msg.senderId,
         content: msg.content,
       }))
-    );
+    )
+    }else{
+      setMessages([])
     }
     
   }, [getMessage]);
