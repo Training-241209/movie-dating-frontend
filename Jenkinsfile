@@ -14,7 +14,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh "docker build --build-arg API_URL=${VITE_API_URL} --build-arg WEBSOCKET=${VITE_WEBSOCKET} --build-arg TMDB_API_URL=${VITE_TMDB_API_URL} --build-arg TMDB_API_KEY=${VITE_TMDB_API_KEY} -t ${DOCKER_IMAGE}:${DOCKER_TAG} ."
+                sh "docker build --build-arg VITE_API_URL=${VITE_API_URL} --build-arg VITE_WEBSOCKET=${VITE_WEBSOCKET} --build-arg VITE_TMDB_API_URL=${VITE_TMDB_API_URL} --build-arg VITE_TMDB_API_KEY=${VITE_TMDB_API_KEY} -t ${DOCKER_IMAGE}:${DOCKER_TAG} ."
             }
         }
 
