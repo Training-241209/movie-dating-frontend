@@ -19,6 +19,7 @@ pipeline {
         }
         stage('Post-Build') {
             steps {
+                pwd
                 sh 'cp index.html dist/'
             }
         }
