@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Post-Build') {
             steps {
-                sh 'cp index.html dist/index.html'
+                sh 'cp index.html dist/'
             }
         }
 
