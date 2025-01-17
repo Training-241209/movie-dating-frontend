@@ -31,12 +31,15 @@ export function ChatBoxContents({
   const { data: getMessage = [], refetch } = useGetChats({ sender, recipient });
   console.log(getMessage);
   useEffect(() => {
-    setMessages(
+    if(getMessage.length> 0){
+      setMessages(
       getMessage.map((msg: { senderId: string; content: string }) => ({
         user: msg.senderId,
         content: msg.content,
       }))
     );
+    }
+    
   }, [getMessage]);
 
   useEffect(() => {
