@@ -17,35 +17,35 @@ pipeline {
                 sh "docker build --build-arg VITE_API_URL=${VITE_API_URL} --build-arg VITE_WEBSOCKET=${VITE_WEBSOCKET} --build-arg VITE_TMDB_API_URL=${VITE_TMDB_API_URL} --build-arg VITE_TMDB_API_KEY=${VITE_TMDB_API_KEY} -t ${DOCKER_IMAGE}:${DOCKER_TAG} ."
             }
         }
-        stage('Deploy to Nginx') {
-            steps {
-                // Copy build files to Nginx root directory
-                sh '''
-                sudo rm -rf /usr/share/nginx/html/*
-                sudo cp -r build/* /usr/share/nginx/html/
-                '''
-            }
-        }
+        // stage('Deploy to Nginx') {
+        //     steps {
+        //         // Copy build files to Nginx root directory
+        //         sh '''
+        //         sudo rm -rf /usr/share/nginx/html/*
+        //         sudo cp -r build/* /usr/share/nginx/html/
+        //         '''
+        //     }
+        // }
 
-        stage('Restart Nginx') {
-            steps {
-                // Restart Nginx to apply changes
-                sh 'sudo systemctl restart nginx'
-            }
-        }
-        stage('Print Environment Variables') {
+        // stage('Restart Nginx') {
+        //     steps {
+        //         // Restart Nginx to apply changes
+        //         sh 'sudo systemctl restart nginx'
+        //     }
+        // }
+        // stage('Print Environment Variables') {
 
-            steps {
+        //     steps {
 
-                sh 'printenv' // For Linux/Unix
+        //         sh 'printenv' // For Linux/Unix
 
-                // or
+        //         // or
 
-                // bat 'set' // For Windows
+        //         // bat 'set' // For Windows
 
-            }
+        //     }
 
-        }
+        // }
 
 
         stage('Test') {
