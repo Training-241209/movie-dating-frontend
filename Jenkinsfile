@@ -17,11 +17,6 @@ pipeline {
                 sh "docker build --build-arg API_URL=${VITE_API_URL} --build-arg WEBSOCKET=${VITE_WEBSOCKET} --build-arg TMDB_API_URL=${VITE_TMDB_API_URL} --build-arg TMDB_API_KEY=${VITE_TMDB_API_KEY} -t ${DOCKER_IMAGE}:${DOCKER_TAG} ."
             }
         }
-        // stage('Post-Build') {
-        //     steps {
-                
-        //     }
-        // }
 
         stage('Test') {
             steps {
